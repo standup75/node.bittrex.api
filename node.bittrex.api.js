@@ -384,7 +384,17 @@ var NodeBittrexApi = function(options) {
           websocketMarketsCallbacks.push(callback);
           setMessageReceivedWs();
         }, force);
-      }
+      },
+      close: function() {
+        if (wsclient) {
+          wsclient.end();
+        }
+        if (websocketWatchDog) {
+          clearInterval(websocketWatchDog);
+        }
+        wsclient = null;
+        websocketWatchDog = null;
+      },
     },
     sendCustomRequest: function(request_string, callback, credentials) {
       var op;
