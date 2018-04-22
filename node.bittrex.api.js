@@ -392,7 +392,6 @@ var NodeBittrexApi = function(options) {
         if (websocketWatchDog) {
           clearInterval(websocketWatchDog);
         }
-        wsclient = null;
         websocketWatchDog = null;
       },
     },
