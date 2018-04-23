@@ -390,6 +390,10 @@ var NodeBittrexApi = function(options) {
           opts.websockets.autoReconnect = false
           wsclient.end();
         }
+        if (websocketWatchDog) {
+          clearInterval(websocketWatchDog);
+          websocketWatchDog = null;
+        }
       },
     },
     sendCustomRequest: function(request_string, callback, credentials) {
